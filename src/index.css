@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  --color-deepspace-50: #f0f4f8;
+  --color-deepspace-100: #d9e2ec;
+  --color-deepspace-200: #bcccdc;
+  --color-deepspace-300: #9fb3c8;
+  --color-deepspace-400: #829ab1;
+  --color-deepspace-500: #627d98;
+  --color-deepspace-600: #486581;
+  --color-deepspace-700: #334e68;
+  --color-deepspace-800: #243b53;
+  --color-deepspace-900: #0f1c2e;
+  --color-deepspace-950: #080e1a;
+
+  --color-cosmic-navy: #0b1329;
+  --color-cosmic-purple: #7c3aed;
+  --color-cosmic-indigo: #4f46e5;
+  --color-cosmic-violet: #a855f7;
+  --color-math-cyan: #38bdf8;
+  --color-math-glow: #00f0ff;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    @apply antialiased transition-colors duration-300;
+  }
+  
+  code, kbd, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Theme Root Variables */
+.theme-academic {
+  background-color: #fcfbf7;
+  color: #1c1917;
+}
+
+.theme-space, .dark {
+  background-color: #050814;
+  color: #f8fafc;
+}
+
+/* Deep Space Theme & Mathematical Notation High-Contrast CSS Rules */
+.katex {
+  font-size: 1.08em;
+  line-height: 1.25;
+  color: inherit;
+}
+
+/* Classic Academic Theme KaTeX Rules - Sharp Academic Ink */
+.theme-academic .katex,
+.theme-academic .katex *,
+[data-theme="academic"] .katex,
+[data-theme="academic"] .katex * {
+  color: #0f172a !important; /* Deep navy black for ultra-sharp academic contrast */
+  border-color: #0f172a !important;
+}
+
+.theme-academic .katex .mord.mathnormal,
+[data-theme="academic"] .katex .mord.mathnormal {
+  color: #0284c7 !important; /* Royal navy blue for variables */
+}
+
+.theme-academic .katex .mbin,
+.theme-academic .katex .mrel,
+.theme-academic .katex .mop,
+[data-theme="academic"] .katex .mbin,
+[data-theme="academic"] .katex .mrel,
+[data-theme="academic"] .katex .mop {
+  color: #4f46e5 !important; /* Deep Indigo for operators */
+}
+
+/* Deep Space Theme KaTeX High-Contrast Readability */
+.theme-space .katex,
+.theme-space .katex *,
+.dark .katex,
+.dark .katex *,
+[data-theme="space"] .katex,
+[data-theme="space"] .katex * {
+  color: #f8fafc !important; /* Luminous crisp white for numbers, parens, brackets */
+  border-color: #38bdf8 !important; /* Cyan for fraction lines & sqrt symbols */
+}
+
+/* Specific colorful highlights for math variables & operators in Deep Space */
+.theme-space .katex .mord.mathnormal,
+.dark .katex .mord.mathnormal,
+[data-theme="space"] .katex .mord.mathnormal {
+  color: #38bdf8 !important; /* Bright sky cyan for variables like x, y, f, theta */
+}
+
+.theme-space .katex .mbin,
+.theme-space .katex .mrel,
+.theme-space .katex .mop,
+.dark .katex .mbin,
+.dark .katex .mrel,
+.dark .katex .mop,
+[data-theme="space"] .katex .mbin,
+[data-theme="space"] .katex .mrel,
+[data-theme="space"] .katex .mop {
+  color: #c084fc !important; /* Luminous violet for operators +, -, =, <=, >= */
+}
+
+.theme-space .katex .frac-line,
+.dark .katex .frac-line,
+[data-theme="space"] .katex .frac-line {
+  border-bottom-color: #38bdf8 !important;
+  border-top-color: #38bdf8 !important;
+}
+
+/* Dark container overrides regardless of theme */
+.bg-slate-900 .katex,
+.bg-slate-950 .katex,
+.bg-blue-950 .katex,
+.bg-slate-800 .katex,
+.bg-blue-600 .katex {
+  color: #f8fafc !important;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}

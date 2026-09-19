@@ -1,0 +1,8 @@
+{
+  "name": "Mathero",
+  "description": "WebApp moderna ed interattiva per l'apprendimento della Matematica e dello Studio di Funzione con mappa concettuale, graficatore, calcolatrice passo-passo, sfide e reportistica.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
