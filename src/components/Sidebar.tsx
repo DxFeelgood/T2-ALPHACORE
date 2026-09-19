@@ -38,46 +38,36 @@ export const Sidebar: React.FC<SidebarProps> = ({
       id: 'roadmap' as ActiveTab,
       label: 'Mappa Percorso',
       icon: Map,
-      badge: '7 Moduli',
     },
     {
       id: 'plotter' as ActiveTab,
       label: 'Graficatore',
       icon: LineChart,
-      badge: '2D/SVG',
     },
     {
       id: 'calculator' as ActiveTab,
       label: 'Calcolatrice & Solver',
       icon: Calculator,
-      badge: 'Passo-Passo',
     },
     {
       id: 'daily' as ActiveTab,
       label: 'Sfida del Giorno',
       icon: CalendarCheck,
-      badge: `${streakCount}d 🔥`,
-      badgeColor: 'bg-rose-500 text-white',
     },
     {
       id: 'gamification' as ActiveTab,
       label: 'Trofei & Gamification',
       icon: Trophy,
-      badge: `Lvl ${userLevel}`,
-      badgeColor: 'bg-amber-500 text-white',
     },
     {
       id: 'groups' as ActiveTab,
       label: 'Aule & Gruppi Studio',
       icon: Users,
-      badge: 'Social',
-      badgeColor: 'bg-indigo-600 text-white',
     },
     {
       id: 'dashboard' as ActiveTab,
       label: 'Dashboard & Stats',
       icon: BarChart3,
-      badge: null,
     },
   ];
 
@@ -122,7 +112,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => setActiveTab(item.id)}
                 title={isCollapsed ? item.label : undefined}
                 className={`w-full flex items-center ${
-                  isCollapsed ? 'justify-center px-0' : 'justify-between px-3'
+                  isCollapsed ? 'justify-center px-0' : 'px-3'
                 } py-2.5 rounded-xl text-sm font-semibold transition-all duration-150 cursor-pointer ${
                   isActive
                     ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30 font-bold'
@@ -141,15 +131,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   }`} />
                   {!isCollapsed && <span className="truncate">{item.label}</span>}
                 </div>
-                {!isCollapsed && item.badge && (
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-bold shrink-0 ${
-                      item.badgeColor || (isActive ? 'bg-blue-500/40 text-white' : 'bg-slate-800 text-slate-400')
-                    }`}
-                  >
-                    {item.badge}
-                  </span>
-                )}
               </button>
             );
           })}
